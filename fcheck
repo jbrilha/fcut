@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+if [[ "$1" ]]; then
+    echo "Usage: $(basename "$0")"
+    exit 1
+fi
+
+fcount=$(cat ~/.fcut.history | wc -l | sed 's/^ *//g')
+
+echo "You've cut..."
+if  [[ "$fcount" == "1" ]]; then
+    echo "\t$fcount file:\n"
+else
+    echo "$fcount files:\n"
+fi
+cat ~/.fcut.history

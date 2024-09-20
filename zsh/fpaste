@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 if [[ -z "$1" ]]; then
     echo "Usage: $(basename "$0") dir"
@@ -11,3 +11,7 @@ for line in "${(@f)"$(<~/.fcut.history)"}"
 {
     cp $line $dir
 }
+
+rm ~/.fcut.history
+
+

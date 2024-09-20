@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ "$1" ]]; then
+    echo "Usage: $(basename "$0")"
+    exit 1
+fi
+
+fcount=$(cat ~/.fcut.history | wc -l | sed 's/^ *//g')
+
+echo "You've cut..."
+if  [[ "$fcount" == "1" ]]; then
+    printf "\t$fcount file:\n"
+else
+    printf "\t$fcount files:\n"
+fi
+
+cat ~/.fcut.history
